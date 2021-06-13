@@ -1,6 +1,9 @@
-function update(answery){
-    if (answer == "Add City"){
-        
+function update(answer,location, model){
+    if(answer == "Add City"){
+        return {
+            ...model,
+            name: location
+        }
     }
 
 
