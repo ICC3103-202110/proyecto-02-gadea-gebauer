@@ -30,10 +30,18 @@ function listForm(model){
 }
 
 function getTable(model){
-    const {name,temp,max,min} = model
-    return [{
-        'name': name, 'temp': temp , 'max': max, 'min': min
-    }]
+    const values_1 = []
+    var cantidad = model[0].cant
+    console.log(cantidad)
+    for (var i = 0;i<cantidad;i++){
+        var name = model[i].name
+        var temp = model[i].temp
+        var min = model[i].min
+        var max = model[i].max
+        var list_1 = {'name': name, 'temp': temp, 'min': min, 'max': max}
+        values_1.push(list_1)
+    }
+    return values_1
 }
 function inputForm(model){
     //const{input} = update
