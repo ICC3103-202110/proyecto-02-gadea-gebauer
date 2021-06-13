@@ -35,6 +35,20 @@ function getTable(model){
         'name': name, 'temp': temp , 'max': max, 'min': min
     }]
 }
+function inputForm(model){
+    //const{input} = update
+    return inquirer.prompt([
+        {
+            name: 'name',
+            type: 'input',
+            message: 'Location?',
+            validate: function(value){
+                return true
+            }
+        }
+        
+    ])
+}
 
 function view(model){
     return {
@@ -44,5 +58,6 @@ function view(model){
 }
 module.exports = {
     view,
-    listForm
+    listForm,
+    inputForm
 }

@@ -4,6 +4,7 @@ const {printTable} = require('console-table-printer')
 
 
 async function app(state, update, view){
+    while(true){
     const {model, currentView} = state
     const {title, table} = currentView
     console.clear()
@@ -11,6 +12,15 @@ async function app(state, update, view){
     console.log(title)
     printTable(table)
     const {answer} = await listForm(model)
+    if(answer == "Add City" || answer == "Delete City"){
+        const {name} = await inputForm(state)
+    }
+    state = {
+        ...state,
+        model: updatedModel,
+        currentView: view(updatedModel)
+
+    }}
 }
 
 module.exports = {
