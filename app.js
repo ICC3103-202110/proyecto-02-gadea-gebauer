@@ -12,12 +12,10 @@ async function app(state, update, view){
     console.log(title)
     printTable(table)
     const {answer} = await listForm(model)
-    
+    //if(answer == "Add City" || answer == "Delete City"){
     const {name} = await inputForm(state)
     
-    const updatedModel = update(answer, name, model)
-    
-
+    const updatedModel = update(answer,name,model)
     state = {
         ...state,
         model: updatedModel,
