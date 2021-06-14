@@ -17,6 +17,13 @@ function update(answer,name,model){
 
 
 }
+
+function update_delete(){
+    
+
+}
+
 module.exports = {
-    update
+    update,
+    update_delete
 }
