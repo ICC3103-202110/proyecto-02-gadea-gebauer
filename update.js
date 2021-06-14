@@ -7,10 +7,9 @@ function update(answer,name,model){
         const list = {'name': name, 'temp': 0, 'max': 0, 'min': 0}
         model.push(list)
     }
-    else{
-        var cantidad = model[0].cant - 1
-        model[0].cant = cantidad
-        
+
+    else if(answer == "Delete City"){
+        update_delete(model, name)
     }
     return model
 
@@ -18,8 +17,21 @@ function update(answer,name,model){
 
 }
 
-function update_delete(){
+function update_delete(model,name2){
+    const names = model
+    for(var i = 0; i<model[0].cant;i++){
+        if(names[i].name == name2){
+            break
+
+        }
+
+    }
+    let pos = model.splice(i,1)
     
+    
+    var cantidad = model[0].cant - 1
+    model[0].cant = cantidad
+
 
 }
 

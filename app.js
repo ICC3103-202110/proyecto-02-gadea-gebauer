@@ -8,7 +8,7 @@ async function app(state, update, view){
     while(true){
     const {model, currentView} = state
     const {title, table} = currentView
-    console.clear()
+    //console.clear()
     
     console.log(title)
     printTable(table)
@@ -31,6 +31,13 @@ async function app(state, update, view){
    else if(answer == "Delete City"){
 
         const {answer2} = await locations_list(model)
+        const updatedModel = update(answer,answer2,model)
+        state = {
+            ...state,
+            model: updatedModel,
+            currentView: view(updatedModel)
+    
+        }
 
     }
     
