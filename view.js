@@ -32,7 +32,7 @@ function listForm(model){
 function getTable(model){
     const values_1 = []
     var cantidad = model[0].cant
-    console.log(cantidad)
+    
     for (var i = 0;i<cantidad;i++){
         var name = model[i].name
         var temp = model[i].temp
@@ -43,6 +43,25 @@ function getTable(model){
     }
     return values_1
 }
+
+function locations_list(model){
+    const {input} = model
+    const choices = []
+    var cantidad = model[0].cant
+    for (var i = 0;i<cantidad;i++){
+        var name = model[i].name
+        choices.push(name)
+    }
+    return inquirer.prompt([{
+        name: 'answer2',
+        message: "List of locations",
+        type: 'list',
+        default: input,
+        choices: choices
+    }])
+
+}
+
 function inputForm(model){
     //const{input} = update
     return inquirer.prompt([
@@ -67,5 +86,6 @@ function view(model){
 module.exports = {
     view,
     listForm,
-    inputForm
+    inputForm,
+    locations_list
 }
