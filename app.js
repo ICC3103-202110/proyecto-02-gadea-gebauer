@@ -17,7 +17,7 @@ async function app(state, update, view){
     }else{
         printTable(await table)
     }
-    
+
     
     const {answer} = await listForm(model)
     
@@ -34,26 +34,31 @@ async function app(state, update, view){
     }
 
    else if(answer == "Delete City"){
-
-        const {answer2} = await locations_list(await model)
-        const updatedModel = await update(await answer,await answer2,await model)
-        state = await {
-            ...state,
-            model: await updatedModel,
-            currentView: await view(await updatedModel)
-    
+        const amount1 =await model[0].cant
+        if(await amount1!=0){
+            const {answer2} = await locations_list(await model)
+            const updatedModel = await update(await answer,await answer2,await model)
+            state = await {
+                ...state,
+                model: await updatedModel,
+                currentView: await view(await updatedModel)
+        
+            }
         }
 
     }
     else if(answer == "Update City"){
-        const {answer2} = await locations_list(await model)
-        const updatedModel = await update(await answer,await answer2,await model)
-        state = await {
-            ...state,
-            model: await updatedModel,
-            currentView: await view(await updatedModel)
-    
-        }        
+        const amount1 =await model[0].cant
+        if(await amount1!=0){
+            const {answer2} = await locations_list(await model)
+            const updatedModel = await update(await answer,await answer2,await model)
+            state = await {
+                ...state,
+                model: await updatedModel,
+                currentView: await view(await updatedModel)
+        
+            }
+        }   
     }
     
 

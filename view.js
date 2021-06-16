@@ -31,8 +31,8 @@ async function listForm(model){
 
 async function getTable(model){
     values_1 = []
-    const cantidad = await model[0].cant
-    for (var i = 0;i<cantidad;i++){
+    const amount = await model[0].cant
+    for (var i = 0;i<amount;i++){
         var name = await model[i+1].name
         const temp = await model[i+1].temp
         const min = await model[i+1].min
@@ -46,8 +46,8 @@ async function getTable(model){
 async function locations_list(model){
     const {input} = await model
     const choices = []
-    const cantidad = await model[0].cant
-    for (var i = 0;i<await cantidad;i++){
+    const amount = await model[0].cant
+    for (var i = 0;i<await amount;i++){
         const name = await model[i+1].name
         await choices.push(await name)
         

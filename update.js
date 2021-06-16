@@ -18,8 +18,8 @@ async function getData(city){
 
 async function update(answer,name,model){
     if (answer == "Add City"){
-        const cantidad = await model[0].cant + 1
-        model[0].cant = await cantidad
+        const amount = await model[0].cant + 1
+        model[0].cant = await amount
         const list = await getData(name)
         model.push(await list)
     }
@@ -38,9 +38,9 @@ async function update(answer,name,model){
 
 async function update_delete(model,name2){
     const names = await model
-    const cantidad1 = await model[0].cant
+    const amount1 = await model[0].cant
 
-    for(var i = 0; i<cantidad1;i++){
+    for(var i = 0; i<amount1;i++){
         if(names[i].name == name2){
             break
 
@@ -50,15 +50,15 @@ async function update_delete(model,name2){
     await model.splice(i,1)
     
     
-    const cantidad = await model[0].cant - 1
-    model[0].cant = await cantidad
+    const amount = await model[0].cant - 1
+    model[0].cant = await amount
     return await model
 
 }
 
 async function update_city(model,name2){
-    const cantidad1 = await model[0].cant
-    for(var i = 0; i<cantidad1;i++){
+    const amount1 = await model[0].cant
+    for(var i = 0; i<amount1;i++){
         if(await model[i].name == name2){
             model[i] = await getData(await name2)
             break
